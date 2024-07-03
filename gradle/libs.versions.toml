@@ -1,0 +1,18 @@
+[versions]
+
+android-plugin = '8.5.0'
+
+android-sdk-compile = '34'
+android-sdk-min = '26'
+android-sdk-target = '34'
+
+java = '11'
+
+kotlin = '1.9.24'
+
+
+[plugins]
+
+android-application = { id = 'com.android.application', version.ref = 'android-plugin' }
+
+kotlin-android = { id = 'org.jetbrains.kotlin.android', version.ref = 'kotlin' }

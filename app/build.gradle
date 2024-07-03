@@ -1,0 +1,40 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+}
+
+android {
+    namespace 'org.bubenheimer'
+
+    compileSdk libs.versions.android.sdk.compile.get().toInteger()
+
+    defaultConfig {
+        minSdk libs.versions.android.sdk.min.get().toInteger()
+        targetSdk libs.versions.android.sdk.target.get().toInteger()
+    }
+
+    compileOptions {
+        sourceCompatibility libs.versions.java.get()
+        targetCompatibility libs.versions.java.get()
+    }
+
+    kotlinOptions {
+        jvmTarget = libs.versions.java.get()
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+
+        release {
+            minifyEnabled true
+            shrinkResources true
+            debuggable true
+            jniDebuggable false
+            renderscriptDebuggable false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
+            signingConfig signingConfigs.debug // Simplistic shortcut for testing
+        }
+    }
+}
